@@ -1,0 +1,376 @@
+<style>
+
+
+/* Online Shoes — Core styles */
+/* Font import */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
+
+:root {
+  --bg: #0f0f12;
+  --card: #16161a;
+  --muted: #7f85a3;
+  --text: #eaeaf2;
+  --accent: #ff6b3d;
+  --accent-2: #5bd3ff;
+  --success: #22c55e;
+  --danger: #ef4444;
+  --shadow: 0 10px 30px rgba(0,0,0,0.35);
+  --radius: 16px;
+}
+
+* { box-sizing: border-box; }
+html, body {
+  margin: 0; padding: 0;
+  background: radial-gradient(1200px 600px at 20% -20%, #1a1a23 0%, #0f0f12 55%), #0f0f12;
+  color: var(--text);
+  font-family: 'Poppins', system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  line-height: 1.6;
+}
+
+a { color: var(--text); text-decoration: none; }
+img { max-width: 100%; display: block; }
+
+.container { width: 100%; max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+
+/* Header */
+.header {
+  position: sticky; top: 0; z-index: 1000;
+  background: rgba(15, 15, 18, 0.6);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(255,255,255,0.06);
+}
+.header-inner {
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 16px 0;
+}
+.brand {
+  display: flex; align-items: center; gap: 12px;
+}
+.brand-logo {
+  width: 40px; height: 40px; border-radius: 12px;
+  background: linear-gradient(135deg, var(--accent), var(--accent-2));
+  box-shadow: var(--shadow);
+}
+.brand-name { font-weight: 700; letter-spacing: 0.5px; }
+.nav { display: flex; gap: 24px; }
+.nav a { opacity: 0.9; }
+.nav a.active, .nav a:hover { color: var(--accent); opacity: 1; }
+
+.header-actions { display: flex; align-items: center; gap: 12px; }
+.search {
+  position: relative; width: 280px; max-width: 42vw;
+}
+.search input {
+  width: 100%; padding: 10px 40px 10px 14px;
+  border: 1px solid rgba(255,255,255,0.08);
+  background: var(--card);
+  color: var(--text); border-radius: 12px;
+}
+.search .icon {
+  position: absolute; right: 12px; top: 50%; transform: translateY(-50%);
+  font-size: 14px; color: var(--muted);
+}
+.icon-btn {
+  padding: 10px 12px; border-radius: 12px; border: 1px solid rgba(255,255,255,0.08);
+  background: var(--card); color: var(--text);
+}
+.icon-btn:hover { border-color: rgba(255,255,255,0.18); }
+
+/* Hero */
+.hero {
+  padding: 56px 0;
+}
+.hero-inner {
+  display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 32px; align-items: center;
+}
+.hero-card {
+  background: linear-gradient(135deg, rgba(255,107,61,0.15), rgba(91,211,255,0.08));
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: var(--radius); padding: 32px;
+  box-shadow: var(--shadow);
+}
+.hero h1 {
+  font-size: 48px; line-height: 1.15; margin: 0 0 12px 0;
+}
+.hero p { color: var(--muted); margin: 0 0 20px 0; }
+.hero-cta { display: flex; gap: 12px; flex-wrap: wrap; }
+.btn {
+  display: inline-block; padding: 12px 18px; border-radius: 12px;
+  font-weight: 600; border: 1px solid transparent;
+}
+.btn-primary { background: var(--accent); color: #1a1a1a; }
+.btn-primary:hover { filter: brightness(1.05); }
+.btn-secondary { background: transparent; color: var(--text); border-color: rgba(255,255,255,0.18); }
+.btn-secondary:hover { border-color: rgba(255,255,255,0.36); }
+
+/* Badges */
+.badges { display: flex; gap: 12px; margin-top: 18px; flex-wrap: wrap; }
+.badge {
+  padding: 8px 12px; border-radius: 999px; border: 1px dashed rgba(255,255,255,0.15);
+  color: var(--accent-2); background: rgba(91,211,255,0.06);
+}
+
+/* Section header */
+.section-header {
+  display: flex; justify-content: space-between; align-items: end; gap: 16px;
+  margin: 28px 0 16px 0;
+}
+.section-header h2 { margin: 0; font-size: 26px; }
+.section-header p { margin: 0; color: var(--muted); }
+
+/* Product grid */
+.grid {
+  display: grid; gap: 18px;
+  grid-template-columns: repeat(4, 1fr);
+}
+.product-card {
+  background: var(--card); border: 1px solid rgba(255,255,255,0.08);
+  border-radius: var(--radius); overflow: hidden;
+  box-shadow: var(--shadow);
+  display: flex; flex-direction: column;
+}
+.product-media {
+  aspect-ratio: 1/1; background: #1e1e25; position: relative; overflow: hidden;
+}
+.product-media img { width: 100%; height: 100%; object-fit: cover; }
+.product-info { padding: 14px; display: grid; gap: 6px; }
+.product-title { font-weight: 600; }
+.product-meta { color: var(--muted); font-size: 14px; }
+.price-row { display: flex; justify-content: space-between; align-items: center; margin-top: 6px; }
+.price { font-weight: 700; color: var(--accent); }
+.add-btn { padding: 10px 12px; border-radius: 10px; background: #23232b; border: 1px solid rgba(255,255,255,0.08); }
+.add-btn:hover { border-color: rgba(255,255,255,0.18); }
+
+/* Product detail */
+.detail {
+  display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 24px;
+}
+.gallery {
+  background: var(--card); border: 1px solid rgba(255,255,255,0.08);
+  border-radius: var(--radius); overflow: hidden; box-shadow: var(--shadow);
+}
+.gallery-main { aspect-ratio: 4/3; background: #1e1e25; }
+.gallery-thumbs { display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px; padding: 8px; background: #14141a; }
+.gallery-thumbs img { border-radius: 8px; border: 1px solid rgba(255,255,255,0.08); }
+
+.buy-panel {
+  background: var(--card); border: 1px solid rgba(255,255,255,0.08);
+  border-radius: var(--radius); padding: 18px; box-shadow: var(--shadow);
+}
+.buy-panel h2 { margin: 0 0 6px 0; }
+.rating { color: #ffcc66; font-size: 14px; }
+.colors, .sizes { display: flex; gap: 8px; margin: 12px 0; flex-wrap: wrap; }
+.color {
+  width: 28px; height: 28px; border-radius: 50%;
+  border: 1px solid rgba(255,255,255,0.18);
+}
+.size {
+  padding: 8px 12px; border-radius: 10px; border: 1px solid rgba(255,255,255,0.18);
+  background: #23232b; font-weight: 600;
+}
+.qty-row { display: flex; gap: 10px; align-items: center; margin: 12px 0; }
+.qty-input {
+  width: 80px; padding: 8px; border-radius: 8px;
+  border: 1px solid rgba(255,255,255,0.18); background: #23232b; color: var(--text);
+}
+.buy-actions { display: flex; gap: 10px; margin-top: 10px; }
+
+.help-text { color: var(--muted); font-size: 14px; }
+
+/* Cart */
+.cart {
+  background: var(--card); border: 1px solid rgba(255,255,255,0.08);
+  border-radius: var(--radius); padding: 18px; box-shadow: var(--shadow);
+}
+.cart-item {
+  display: grid; grid-template-columns: 80px 1fr auto; gap: 14px; align-items: center;
+  padding: 12px 0; border-bottom: 1px solid rgba(255,255,255,0.08);
+}
+.cart-item:last-child { border-bottom: 0; }
+.qty-chip { padding: 6px 10px; border-radius: 10px; background: #23232b; border: 1px solid rgba(255,255,255,0.12); }
+.cart-summary { display: grid; gap: 8px; margin-top: 16px; }
+.summary-row { display: flex; justify-content: space-between; color: var(--muted); }
+.total { font-weight: 700; color: var(--accent); font-size: 18px; }
+
+/* Forms */
+.form {
+  display: grid; gap: 12px;
+}
+.input {
+  padding: 12px; border-radius: 10px;
+  background: #23232b; border: 1px solid rgba(255,255,255,0.12);
+  color: var(--text);
+}
+.input:focus { outline: none; border-color: rgba(255,255,255,0.28); }
+.grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+
+/* Footer */
+.footer {
+  margin-top: 48px; padding: 28px 0; color: var(--muted);
+  border-top: 1px solid rgba(255,255,255,0.06);
+}
+.footer-inner { display: grid; grid-template-columns: 1.2fr 1fr 1fr 1fr; gap: 24px; }
+.footer h4 { margin: 0 0 8px 0; color: var(--text); }
+
+/* Responsive */
+@media (max-width: 1024px) {
+  .grid { grid-template-columns: repeat(3, 1fr); }
+  .hero-inner, .detail { grid-template-columns: 1fr; }
+  .footer-inner { grid-template-columns: 1fr 1fr; }
+}
+@media (max-width: 640px) {
+  .grid { grid-template-columns: repeat(2, 1fr); }
+  .nav { display: none; }
+  .search { display: none; }
+}
+
+
+</style>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Online Shoes — Shop the latest sneakers</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <!-- Header -->
+  <header class="header">
+    <div class="container header-inner">
+      <a class="brand" href="index.html">
+        <div class="brand-logo" aria-hidden="true"></div>
+        <div class="brand-name">Online Shoes</div>
+      </a>
+      <nav class="nav">
+        <a class="active" href="index.html">Home</a>
+        <a href="products.html">Products</a>
+        <a href="cart.html">Cart</a>
+        <a href="checkout.html">Checkout</a>
+      </nav>
+      <div class="header-actions">
+        <div class="search">
+          <input type="search" placeholder="Search shoes, brands…" />
+          <span class="icon">⌕</span>
+        </div>
+        <a class="icon-btn" href="cart.html">🛒</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero -->
+  <section class="hero">
+    <div class="container hero-inner">
+      <div class="hero-card">
+        <h1>Step into style. Comfort. Confidence.</h1>
+        <p>Discover curated collections of sneakers, boots, and runners. Crafted for movement, made to be seen.</p>
+        <div class="hero-cta">
+          <a class="btn btn-primary" href="products.html">Shop trending</a>
+          <a class="btn btn-secondary" href="products.html">Explore all</a>
+        </div>
+        <div class="badges">
+          <span class="badge">Free returns 30 days</span>
+          <span class="badge">Worldwide shipping</span>
+          <span class="badge">Trusted brands</span>
+        </div>
+      </div>
+      <div class="hero-card">
+        <img src="c:\Users\Ezekias\Pictures\Opera Instantané_2024-10-07_130001_fr.123rf.com.png" alt="Featured sneaker on gradient background" />
+      </div>
+    </div>
+  </section>
+
+  <!-- Featured products -->
+  <div class="container">
+    <div class="section-header">
+      <h2>Featured drops</h2>
+      <p>Limited releases and best-sellers</p>
+    </div>
+    <div class="grid">
+      <!-- Product card -->
+      <article class="product-card">
+        <div class="product-media">
+          <img src="c:\Users\Ezekias\Pictures\Opera Instantané_2024-10-07_130001_fr.123rf.com.png" alt="Nebula Runner - charcoal" />
+        </div>
+        <div class="product-info">
+          <div class="product-title">Nebula Runner</div>
+          <div class="product-meta">Charcoal • Men</div>
+          <div class="price-row">
+            <div class="price">$119</div>
+            <a class="add-btn" href="product.html">View</a>
+          </div>
+        </div>
+      </article>
+
+      <article class="product-card">
+        <div class="product-media">
+          <img src="c:\Users\Ezekias\Pictures\Opera Instantané_2024-10-07_130001_fr.123rf.com.png" alt="Skyline High - white" />
+        </div>
+        <div class="product-info">
+          <div class="product-title">Skyline High</div>
+          <div class="product-meta">White • Women</div>
+          <div class="price-row">
+            <div class="price">$139</div>
+            <a class="add-btn" href="product.html">View</a>
+          </div>
+        </div>
+      </article>
+
+      <article class="product-card">
+        <div class="product-media">
+          <img src="c:\Users\Ezekias\Pictures\Opera Instantané_2024-10-07_130001_fr.123rf.com.png" alt="Trail Forge - moss" />
+        </div>
+        <div class="product-info">
+          <div class="product-title">Trail Forge</div>
+          <div class="product-meta">Moss • Unisex</div>
+          <div class="price-row">
+            <div class="price">$129</div>
+            <a class="add-btn" href="product.html">View</a>
+          </div>
+        </div>
+      </article>
+
+      <article class="product-card">
+        <div class="product-media">
+          <img src="c:\Users\Ezekias\Pictures\Opera Instantané_2024-10-07_130001_fr.123rf.com.png" alt="City Glide - black" />
+        </div>
+        <div class="product-info">
+          <div class="product-title">City Glide</div>
+          <div class="product-meta">Black • Men</div>
+          <div class="price-row">
+            <div class="price">$99</div>
+            <a class="add-btn" href="product.html">View</a>
+          </div>
+        </div>
+      </article>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container footer-inner">
+      <div>
+        <h4>Online Shoes</h4>
+        <p>Quality footwear for every journey. Modern designs, fair prices, fast shipping.</p>
+      </div>
+      <div>
+        <h4>Shop</h4>
+        <p><a href="products.html">All products</a></p>
+        <p><a href="products.html">New arrivals</a></p>
+        <p><a href="products.html">Sale</a></p>
+      </div>
+      <div>
+        <h4>Support</h4>
+        <p>Shipping & returns</p>
+        <p>Size guide</p>
+        <p>Contact us</p>
+      </div>
+      <div>
+        <h4>Legal</h4>
+        <p>Terms of service</p>
+        <p>Privacy policy</p>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>
